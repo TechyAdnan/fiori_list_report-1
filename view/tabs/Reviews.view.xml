@@ -1,0 +1,58 @@
+<mvc:View   
+   
+    xmlns="sap.m"
+    xmlns:suite="sap.suite.ui.commons"
+    xmlns:mvc="sap.ui.core.mvc"
+  >
+
+		<suite:Timeline
+			id="timeline"
+			enableDoubleSided="false"
+			growing="false"
+			groupBy="dateTime"
+			lazyLoading="true"
+			content="{reviews>/UserReviews}"
+			textHeight="automatic"
+			showHeaderBar="false"
+			enableScroll="false">
+			<suite:TimelineItem
+				dateTime="{reviews>date}"
+				userPicture="{=!${reviews>template} ? ${reviews>userPic} : null}"
+				title="{=!${reviews>template} ? ${reviews>user} : null}"
+				filterValue="{=!${reviews>template} ? ${reviews>rating} : null}"
+				text="{=!${reviews>template} ? ${reviews>quote} : null}">
+			<suite:embeddedControl>
+					<VBox renderType="Bare">
+						<Input
+							value="{reviews>user}"
+							visible="{reviews>template}"
+							placeholder="" />
+						<RatingIndicator
+							enabled="{reviews>template}"
+							value="{reviews>rating}"
+							maxValue="5"
+							iconSize="1rem"
+							class="sapUiTinyMargin" />
+						<Text
+							text="{reviews>quote}"
+							visible="{=!${reviews>template}}"
+							class="sapUiTinyMargin" />
+						<TextArea
+							value="{reviews>quote}"
+							growing="false"
+							height="150px"
+							width="100%"
+							visible="{reviews>template}"
+							placeholder=""
+							valueLiveUpdate="true" />
+						<Button
+							visible="{reviews>template}"
+							text=""
+							press="addReview" />
+					</VBox>
+				</suite:embeddedControl>
+			</suite:TimelineItem>
+		</suite:Timeline>
+
+</mvc:View>
+    

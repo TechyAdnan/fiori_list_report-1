@@ -1,0 +1,55 @@
+{
+    "category":[
+        {
+            "value":"Files & Binder"
+        },
+        {
+            "value":"Trays"
+        },
+        {
+            "value":"Glue & Sticky Tape"
+        },
+        {
+            "value":"Pen & Pencil Holders"
+        },
+        {
+            "value":"Staplers & Hole Punchers"
+        },
+        {
+            "value":"Paperclips, Pins & Magnets"
+        },
+        {
+            "value":"Scissors & Knives"
+        },
+        {
+            "value":"Boxes & Box Tape"
+        },
+        {
+            "value":"Bands & Twine"
+        },
+        {
+            "value":"Envelopes"
+        },
+        {
+            "value":"Wrapping Material"
+        },
+        {
+            "value":"Batteries"
+        },
+        {
+            "value":"Cleaning Aids"
+        },
+        {
+            "value":"Coat Hangers"
+        },
+        {
+            "value":"Cup & Mugs"
+        },
+        {
+            "value":"Calendars"
+        },
+        {
+            "value":"Miscellaneous"
+        }
+    ]
+}

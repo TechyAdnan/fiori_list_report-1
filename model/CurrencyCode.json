@@ -1,0 +1,19 @@
+{
+    "currency":[
+        {
+            "value":"USD"
+        },
+        {
+            "value":"INR"
+        },
+        {
+            "value":"EUR"
+        },
+        {
+            "value":"AUD"
+        },
+        {
+            "value":"CNY"
+        }
+    ]
+}

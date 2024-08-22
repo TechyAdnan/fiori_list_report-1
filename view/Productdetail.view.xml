@@ -1,0 +1,117 @@
+<mvc:View controllerName="node.controller.Productdetail"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.uxap"
+	xmlns:tabs="node.view.tabs"
+	xmlns:layout="sap.ui.layout"
+	xmlns:suite="sap.suite.ui.commons"
+	xmlns:m="sap.m"
+    xmlns:f="sap.f"
+	height="100%">
+	
+	<ObjectPageLayout id="ObjectPageLayout" 
+					  showTitleInHeaderContent="true" 
+					  class="sapUiSizeCompact"
+					  useIconTabBar="true"
+					  upperCaseAnchorBar="false">
+		
+		<headerTitle>
+		
+				<ObjectPageDynamicHeaderTitle>
+					<expandedHeading>
+						<m:Title text="{ProductSet>Name}" wrapping="true"/>
+					</expandedHeading>
+
+					<snappedHeading>
+						<m:FlexBox fitContainer="true" alignItems="Center">
+							<f:Avatar src="https://detectamet.ca/media/catalog/product/cache/10/image/900x/040ec09b1e35df139433887a97daa66f/3/1/316-p42-a32_316-p42-a30_316-p42-a34.jpg"  
+									  class="sapUiTinyMarginEnd"
+									  press="onAvatarClick"/>
+							<m:Title text="{ProductSet>Name}" wrapping="true" />
+						</m:FlexBox>
+					</snappedHeading>
+					
+					
+
+					<snappedTitleOnMobile>
+						<m:Title text="Header Title On Phone"/>
+					</snappedTitleOnMobile>
+
+					<actions>
+						
+						<ObjectPageHeaderActionButton icon="sap-icon://action" type="Transparent" text="Share" tooltip="share"/>
+					</actions>
+				</ObjectPageDynamicHeaderTitle>
+			</headerTitle>
+
+		<headerContent>
+			
+			<m:FlexBox wrap="Wrap">
+			
+				<m:Avatar src="https://detectamet.ca/media/catalog/product/cache/10/image/900x/040ec09b1e35df139433887a97daa66f/3/1/316-p42-a32_316-p42-a30_316-p42-a34.jpg" 
+						  backgroundColor="Random" 
+						  displaySize="L" 
+						  displayShape="Circle"
+						  class="sapUiTinyMarginEnd">
+					<m:detailBox>
+						<m:LightBox >
+							<m:LightBoxItem
+								imageSrc="https://detectamet.ca/media/catalog/product/cache/10/image/900x/040ec09b1e35df139433887a97daa66f/3/1/316-p42-a32_316-p42-a30_316-p42-a34.jpg"
+								alt="Beamer"
+								title="{ProductSet>Name}"
+								subtitle="Price: {ProductSet>Price} {ProductSet>CurrencyCode}" />
+						</m:LightBox>
+					</m:detailBox>
+				</m:Avatar>
+
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+					<m:ObjectStatus title="Price" text="{ProductSet>Price}"/>
+					<m:ObjectStatus title="Currency" text="{ProductSet>CurrencyCode}"/>
+					<m:ObjectStatus title="Category" text="{ProductSet>Category}"/>
+					<m:ObjectStatus title="Supplier Name" text="{ProductSet>SupplierName}"/>
+				</layout:VerticalLayout>
+
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+					
+				</layout:VerticalLayout>
+
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+						<layout:layoutData>
+							<ObjectPageHeaderLayoutData visibleS="false" visibleM="false"/>
+						</layout:layoutData>
+						<m:ObjectStatus text="Rating" state="Success"/>
+						<m:RatingIndicator maxValue="5" value="{ProductSet>Rating}" tooltip="Rating Tooltip" editable="false"/>
+				</layout:VerticalLayout>
+			</m:FlexBox>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection titleUppercase="false" title="Product Detail" showTitle="true" >
+					<subSections>
+					<ObjectPageSubSection id="tabsSectionSS1">
+						<blocks>
+							<tabs:Product id="tab1"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection titleUppercase="false" title="Supplier Detail" showTitle="true">
+					<subSections>
+					<ObjectPageSubSection id="tabsSectionSS2" >
+						<blocks>
+							<tabs:Supplier id="tabs2"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection titleUppercase="false" title="Reviews" showTitle="true">
+					<subSections>
+					<ObjectPageSubSection id="tabsSectionSS3" >
+						<blocks>
+							<tabs:Reviews id="tabs3"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

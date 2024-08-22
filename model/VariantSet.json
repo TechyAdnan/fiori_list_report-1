@@ -1,0 +1,18 @@
+{
+    "variants":[
+        {
+            "VAR_KEY":"1",
+            "VAR_NAME":"var1",
+            "Category":"Files & Binders",
+            "Supplier":"Office Line Prag"
+            
+        },
+        {
+            "VAR_KEY":"2",
+            "VAR_NAME":"var2",
+            "Category":"Trays",
+            "Supplier":"FamousUS (NSH)"
+            
+        }
+    ]
+}

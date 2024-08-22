@@ -1,0 +1,188 @@
+<core:FragmentDefinition
+    controllerName="node.controller.Productlist"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+    <Dialog title="Modify Product"
+            type="Message"
+            id="ModifyProduct"
+            verticalScrolling="true"
+            class="sapUiSizeCompact"
+            stretch="false"
+            contentHeight="400px"
+            contentWidth="900px">
+        <content>
+        <!--form group 1-->
+             <form:Form class="productform" editable="true" title="Basic Details">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                <form:FormElement label="Product ID" class="productdetail" >
+                                    <form:fields>
+                                        <Input id="modify_productid" required="true" width="200px" value="{ProductSet>ProductID}"/>
+                                    </form:fields>
+                                </form:FormElement>
+                                 <form:FormElement label="Name" class="productdetail">
+                                    <form:fields>
+                                        <Input id="modify_name" required="true" width="600px" value="{ProductSet>Name}"/>
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Category" class="productdetail">
+                                    <form:fields>
+                                        <ComboBox items="{Category>/category}" id="modify_cat" required="true" width="200px" value="{ProductSet>Category}">
+								            <items >
+									            <core:Item  text="{Category>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                               <form:FormElement label="Description" class="productdetail">
+                                    <form:fields>
+                                        <TextArea id="modify_Description" width="100%" value="{ProductSet>Description}"/>
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>
+                    <!--form group 2-->
+                     <form:Form class="productform" editable="true" title="Supplier Details">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                
+                                <form:FormElement label="Supplier ID" class="productdetail">
+                                    <form:fields>
+                                        <Input id="modify_supplierid" required="true" width="200px" value="{ProductSet>SupplierID}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Supplier Name" class="productdetail">
+                                    <form:fields>
+                                        <Input id="modify_supplier_name" required="true" width="200px" value="{ProductSet>SupplierName}"/>
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>   
+                    <!--form group 3-->                       
+                     <form:Form class="productform" editable="true" title="Weight Details">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                
+                                <form:FormElement label="Type Code" class="productdetail">
+                                    <form:fields>
+                                        <Input id="modify_typecode" width="200px" value="{ProductSet>TypeCode}"/>
+                                    </form:fields>
+                                </form:FormElement>
+                                
+                               
+                                <form:FormElement label="Weight Measure" class="productdetail">
+                                    <form:fields>
+                                        <Input id="modify_weight_measure" width="200px" value="{ProductSet>WeightMeasure}"/>
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Weight Unit" class="productdetail">
+                                  <form:fields>
+                                        <ComboBox items="{WeightUnit>/unit}" id="modify_weight_unit" required="true" width="200px" value="{ProductSet>WeightUnit}">
+								            <items >
+									            <core:Item  text="{WeightUnit>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>     
+                    <!--form group 4-->  
+                     <form:Form class="productform" editable="true" title="Price Details">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                
+                                <form:FormElement label="Price" class="productdetail">
+                                    <form:fields>
+                                        <Input id="modify_price" required="true" width="200px" value="{ProductSet>Price}"/>
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Currency Code" class="productdetail">
+                                    <form:fields>
+                                        <ComboBox items="{CurrencyCode>/currency}" id="modify_currencycode" required="true" width="200px" value="{ProductSet>CurrencyCode}">
+								            <items >
+									            <core:Item  text="{CurrencyCode>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>  
+                    <!--product group 5-->
+                     <form:Form class="productform" editable="true" title="Dimension Details">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                              
+                                <form:FormElement label="Width" class="productdetail">
+                                    <form:fields>
+                                        <Input id="modify_width" width="200px" value="{ProductSet>Width}"/>
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Depth" class="productdetail">
+                                    <form:fields>
+                                        <Input id="modify_depth" width="200px" value="{ProductSet>Depth}"/>
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Height" class="productdetail">
+                                    <form:fields>
+                                        <Input id="modify_Height"  width="200px" value="{ProductSet>Height}"/>
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Dimension Unit" class="productdetail">
+                                    <form:fields>
+                                        <ComboBox items="{DimensionUnit>/unit}" id="modify_dim_unit" required="true" width="200px" value="{ProductSet>DimUnit}">
+								            <items >
+									            <core:Item  text="{DimensionUnit>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>                                                                                               
+        </content>
+        <buttons>
+        <Button text="Save" press="onSaveModify" type="Emphasized"/>
+        <Button text="Cancel" press="onCloseModify" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

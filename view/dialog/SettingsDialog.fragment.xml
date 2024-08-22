@@ -1,0 +1,86 @@
+<core:FragmentDefinition
+    controllerName="node.controller.Productlist"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:tnt="sap.tnt"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+    <Dialog title="Settings"
+                id="settings"
+                class="sapUiSizeCompact"
+                type="Standard"
+                visible="true"
+                showHeader="true"
+                verticalScrolling="true"
+                stretch="false"
+                contentWidth="900px"
+                contentHeight="400px"
+                >
+        <content>
+            	<SplitApp
+		            id="SplitAppSettings"
+		            initialDetail="detail"
+		            initialMaster="master"
+                  
+                    >
+		<detailPages >
+             <Page id="columns_page03" title="Apperence" >
+                <form:Form class="themeform" editable="false" title="1. Theme">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer> 
+                            <form:formElements> 
+                                <form:FormElement  class="productdetail">
+                                    <form:fields>
+                                         <SegmentedButton id="theme_btn"  >
+					                        <items>
+						                        <SegmentedButtonItem id="light_theme" text="Light Mode" />
+						                        <SegmentedButtonItem id="dark_theme" text="Dark Mode" />
+					                        </items>
+				                        </SegmentedButton>
+                                    </form:fields>
+                                </form:FormElement>
+                            </form:formElements>
+                        </form:FormContainer>
+                </form:Form>   
+            </Page>
+            <Page id="columns_page01" title="Columns" >
+			<List items="{Columns>/Items}" mode="MultiSelect" selectionChange="onColumnsChange" id="columslist" 	>
+				<StandardListItem  title="{Columns>text}" />
+			</List>
+            </Page>
+             <Page id="columns_page02" title="Sort" >
+
+            </Page>
+            
+		</detailPages>
+		<masterPages >
+			
+            <tnt:NavigationList >
+                    <tnt:NavigationListItem id="Nav03" text="Apparence" icon="sap-icon://palette" select="onNav03" />
+					<tnt:NavigationListItem id="Nav01" text="Columns" icon="sap-icon://multi-select" select="onNav01" >
+						<!--<tnt:NavigationListItem text="Sub Item 1" />
+						<tnt:NavigationListItem text="Sub Item 2" />
+						<tnt:NavigationListItem text="Sub Item 3" id="subItem3" key="subItem3" />
+						<tnt:NavigationListItem text="Sub Item 4" />-->
+					</tnt:NavigationListItem>
+
+					<tnt:NavigationListItem  id="Nav02" text="Sort" icon="sap-icon://sort" select="onNav02">
+						<!--<tnt:NavigationListItem text="Sub Item 1" />
+						<tnt:NavigationListItem text="Sub Item 2" />
+						<tnt:NavigationListItem text="Sub Item 3" id="subItem4" key="subItem3" />
+						<tnt:NavigationListItem text="Sub Item 4" />-->
+					</tnt:NavigationListItem>
+                    
+			</tnt:NavigationList>
+           
+		</masterPages>
+	</SplitApp>                                                                               
+        </content>
+         <buttons>
+        <Button text="Apply"  press="onApplySettings" type="Emphasized"/>
+       <Button text="Cancel" press="onCloseSettings" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

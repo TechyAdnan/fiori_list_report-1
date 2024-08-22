@@ -1,0 +1,425 @@
+<mvc:View 
+	xmlns:layout="sap.ui.layout"   
+    controllerName="node.controller.Productlist"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+	xmlns:uxap="sap.uxap"
+    xmlns:semantic="sap.f.semantic"
+	xmlns:core="sap.ui.core"	
+	xmlns:v="sap.ui.comp.variants"
+	xmlns:fb="sap.ui.comp.filterbar">
+
+
+	<!--<uxap:ObjectPageHeader id="oh1"
+				objectTitle="Numéro d'abonne : FR00000023 - Coca-Cola Company France"
+                objectSubtitle="Date: 03/11/2021"
+                class="sapUiSizeCompact"
+				>	
+    </uxap:ObjectPageHeader>
+	<ObjectHeader
+				id="oh1"
+				responsive="true"
+				title="Numéro d'abonne : FR00000023 - Coca-Cola Company France"
+				intro="Date: 03/11/2021"
+				backgroundDesign="Solid"
+				titleActive="false"
+				>
+			</ObjectHeader>-->
+
+	
+	<!-- Semantic Page -->
+    <semantic:SemanticPage
+		id="page"
+		headerPinnable="true"
+		toggleHeaderOnTitleClick="true"
+		preserveHeaderStateOnScroll="false"
+		headerExpanded="true"
+		class="sapUiSizeCompact">
+
+		<!-- Page Heading -->
+		
+	<semantic:titleHeading >
+		<!--<Title text="Numéro d'abonne : FR00000023 - Coca-Cola Company France"></Title>-->
+			<!--Varient Management-->
+			<v:VariantManagement id="vm" 
+								 select="onSelectVariant" 
+								 save="onSave" 
+			 					 enabled="true" 
+								 manage="onManage"
+								 showExecuteOnSelection="true" 
+								 showShare="false" 
+								 variantItems="{VariantSet>/variants}">
+
+				<v:variantItems>
+					<v:VariantItem text="{VariantSet>VAR_NAME}" 
+								   key="{VariantSet>VAR_KEY}"/> 
+				</v:variantItems>                             
+
+     		</v:VariantManagement>
+		</semantic:titleHeading>
+
+	<!--<semantic:titleExpandedContent>
+		<Text text="Date: 03/11/2021"></Text>
+	</semantic:titleExpandedContent>-->
+		<!-- Heading Content -->
+		<semantic:headerContent>
+			<!--Filter Bar-->
+			<fb:FilterBar id="filterBar"  
+						  search="onGo" 
+						  clear="onClear" 
+						  cancel="onCancel" 
+		                  filtersDialogClosed ="onFiltersDialogClosed"
+		                  showClearButton="true"
+						  showClearOnFB="true" 
+						  useToolbar="true">
+			
+				<fb:filterGroupItems>
+					<!--Filter Item 01-->
+					<fb:FilterGroupItem groupName="G0" 
+										name="A" 
+										label="Search" 
+										partOfCurrentVariant="true" 
+										visibleInFilterBar="true">
+						<fb:control>
+							<SearchField id="searchField"  
+										 liveChange=".onSearch" 
+										 width="200px" />
+						</fb:control>
+					</fb:FilterGroupItem>
+					<!--Filter Item 02-->
+					<fb:FilterGroupItem groupName="G0" 
+										name="B" 
+										label="Category"
+										labelTooltip="Tooltip Example" 
+										partOfCurrentVariant="true" 
+										visibleInFilterBar="true">
+
+						<fb:control>
+							<ComboBox items="{Category>/category}" 
+									  id="filter_cat"  >
+								<items >
+									<core:Item  text="{Category>value}" />
+								</items>
+							</ComboBox>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<!--Filter Item 03-->
+					<fb:FilterGroupItem groupName="G0" 
+										name="C" 
+										label="Supplier" 
+										partOfCurrentVariant="true" 
+										visibleInFilterBar="true">
+						<fb:control>
+							<Input id="filter_supplier" 
+								   showValueHelp="true"
+								   valueHelpRequest=".onValueHelpSupplier"
+								   ></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					
+				</fb:filterGroupItems>				
+					
+	    	</fb:FilterBar>		
+		
+	</semantic:headerContent>	
+		
+				<!-- Table 
+				<ScrollContainer
+						height="75%"
+						width="100%"
+						vertical="true"
+						horizontal="false"
+						class="sapUiSizeCompact"
+						>-->
+		 			
+			
+				<Table
+						id="table"
+						growing="false"
+						mode="SingleSelectLeft"
+						class="sapFSemanticPageAlignContent"
+						width="100%"
+						selectionChange="onselectionChange"
+						items="{ProductSet>/d/results}"
+						fixedLayout="false"
+						>
+					<!--Table Toolbar-->
+					<headerToolbar>
+						<Toolbar>
+							<Title
+								id="tableHeader"
+								text="Product List"/>
+						
+							<ToolbarSpacer/>
+
+							<Button	tooltip="Create"
+									id="CreateButton"
+									text="Create"
+									type="Transparent"
+									press="onCreate" />
+
+							<Button tooltip="Modify"
+									id="ModifyButton"
+									text="Modify"
+									type="Transparent"
+									enabled="false"
+									press="onModify" />
+
+							<Button tooltip="Delete"
+									id="DeleteButton"
+									icon="sap-icon://delete"
+									enabled="false"
+									press="onDelete" />
+
+						
+
+							<Button tooltip="Settings"
+									id="SettingsButton"
+									icon="sap-icon://action-settings"
+									press="onSettings" />
+						
+							<MenuButton icon="sap-icon://excel-attachment" 
+										tooltip="Export" 
+										id="MenuButton">
+								<menu>
+									<Menu>
+										<MenuItem text="Export"  
+												  press="onExport" />
+										<MenuItem text="Export As"  
+												  press="onExportAs" />
+									</Menu>
+								</menu>
+							</MenuButton>
+							
+						</Toolbar>
+					</headerToolbar>
+					<!--Table Columns-->
+					
+					<columns >
+
+						<Column id="productidColumn" 
+								styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/0/visible}">
+							<Text id="productid" 
+								  text="Product ID"/>
+						</Column>
+
+						<Column id="productnameColumn" 
+								styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/1/visible}">
+							<Text id="productname" 
+							      text="Name"/>
+						</Column>
+
+						<Column id="categoryColumn" 
+								styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/2/visible}">
+							<Text id="category" 
+								  text="Category"/>
+						</Column>
+
+						<Column id="discriptionColumn" 
+								styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/3/visible}" >
+							<Text  id="discription" 
+								   text="Description"/>
+						</Column>
+
+						<Column id="supplieridColumn" 
+								styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/4/visible}" >
+							<Text  id="supplierid" 
+								   text="Supplier ID"/>
+						</Column>
+
+						<Column id="suppliernameColumn" 
+								styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/5/visible}">
+							<Text id="suppliername" 
+								  text="Supplier"/>
+						</Column>
+
+						<Column id="typecodeColumn" 
+						        styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/6/visible}" >
+							<Text  id="typecode" 
+							       text="Type Code"/>
+						</Column>
+
+						<Column id="weightmeasureColumn" 
+								styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/7/visible}" >
+							<Text  id="weightmeasure" 
+								   text="Weight Measure"/>
+						</Column>
+
+						<Column id="priceColumn" 
+								styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/8/visible}" >
+							<Text  id="price" 
+								   text="Price"/>
+						</Column>
+
+						<Column id="currencyColumn" 
+								styleClass="sapMListTblCell" 
+								visible="false" >
+							<Text  id="currency" 
+								   text="Currency"/>
+						</Column>
+
+						<Column id="widthColumn" 
+								styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/9/visible}" >
+							<Text  id="width" 
+								   text="Width"/>
+						</Column>
+
+						<Column id="depthColumn" 
+								styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/10/visible}" >
+							<Text  id="depth" 
+								   text="Depth"/>
+						</Column>
+
+						<Column id="heightColumn" 
+								styleClass="sapMListTblCell" 
+								visible="{Columns>/Items/11/visible}" >
+							<Text  id="height" 
+								   text="Height"/>
+						</Column>
+
+					</columns>
+				
+						
+					<!--Table Items-->
+				
+						
+						
+						
+					<items  >
+					
+						<ColumnListItem
+							id="listitem"
+							vAlign="Middle"
+							type="Navigation"
+							press="onPress"
+							class="sapUiSizeCompact"
+							>
+
+							<cells>
+								<Text text="{ProductSet>ProductID}"/>
+							</cells>
+
+							<cells>
+								<Text text = "{ProductSet>Name}"/>
+							</cells>
+
+							<cells>
+								<Text text = "{ProductSet>Category}"/>
+							</cells>
+
+							<cells>
+								<Text text = "{ProductSet>Description}"/>
+							</cells>
+
+							<cells>
+								<Text text = "{ProductSet>SupplierID}"/>
+							</cells>
+
+							<cells>
+                                <Text text = "{ProductSet>SupplierName}"/>
+							</cells>
+
+							<cells>
+                                <Text text = "{ProductSet>TypeCode}"/>
+							</cells>
+
+							<cells>
+								<ObjectNumber
+									 number="{
+						                            parts: [
+							                                    {path: 'ProductSet>WeightMeasure'},
+							                                    {path: 'ProductSet>WeightUnit'}
+						                                    ],
+						                            type: 'sap.ui.model.type.Unit',
+						                            formatOptions: { showMeasure: false }
+					                            }"
+					                    unit="{ProductSet>WeightUnit}"/>
+							</cells>
+
+							<cells>
+								<ObjectNumber
+									 number="{
+						                            parts: [
+							                                    {path: 'ProductSet>Price'},
+							                                    {path: 'ProductSet>CurrencyCode'}
+						                                    ],
+						                            type: 'sap.ui.model.type.Currency',
+						                            formatOptions: { showMeasure: false }
+					                            }"
+					                    unit="{ProductSet>CurrencyCode}"/>
+							</cells>
+
+							<cells>
+								
+							</cells>
+								 <Text text = "{ProductSet>CurrencyCode}"/>
+							<cells>
+								<ObjectNumber
+									 number="{
+						                            parts: [
+							                                    {path: 'ProductSet>Width'},
+							                                    {path: 'ProductSet>DimUnit'}
+						                                    ],
+						                            type: 'sap.ui.model.type.Unit',
+						                            formatOptions: { showMeasure: false }
+					                            }"
+					                    unit="{ProductSet>DimUnit}"/>
+							</cells>
+
+							<cells>
+								<ObjectNumber
+									 number="{
+						                            parts: [
+							                                    {path: 'ProductSet>Depth'},
+							                                    {path: 'ProductSet>DimUnit'}
+						                                    ],
+						                            type: 'sap.ui.model.type.Unit',
+						                            formatOptions: { showMeasure: false }
+					                            }"
+					                    unit="{ProductSet>DimUnit}"/>
+							</cells>
+
+							
+							<cells>
+								<ObjectNumber
+									 number="{
+						                            parts: [
+							                                    {path: 'ProductSet>Height'},
+							                                    {path: 'ProductSet>DimUnit'}
+						                                    ],
+						                            type: 'sap.ui.model.type.Unit',
+						                            formatOptions: { showMeasure: false }
+					                            }"
+					                    unit="{ProductSet>DimUnit}"/>
+							</cells>
+
+						</ColumnListItem>
+					
+					</items>
+				
+				
+				</Table>
+				<!--</ScrollContainer>-->
+				<!--<semantic:sendEmailAction>
+					<semantic:SendEmailAction id="shareEmail" 
+											  press=".onShareEmailPress"/>
+			    </semantic:sendEmailAction> -->
+				
+		
+	</semantic:SemanticPage>
+
+   
+</mvc:View>
+    

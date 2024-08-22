@@ -1,0 +1,54 @@
+{
+    
+    "Items": [
+        {
+            "columnKey": "ProductID",
+            "text": "Product ID",
+            "visible": false
+        }, {
+            "columnKey": "Name",
+            "text": "Name",
+            "visible": false
+        }, {
+            "columnKey": "Category",
+            "text": "Category",
+            "visible": false
+        }, {
+            "columnKey": "Discription",
+            "text": "Discription",
+            "visible": false
+        }, {
+            "columnKey": "SupplierID",
+            "text": "Supplier ID",
+            "visible": false
+        }, {
+            "columnKey": "SupplierName",
+            "text": "Supplier Name",
+            "visible": false
+        }, {
+            "columnKey": "TypeCode",
+            "text": "Type Code",
+            "visible": false
+        }, {
+            "columnKey": "WeightMeasure",
+            "text": "Weight Measure",
+            "visible": false
+        }, {
+            "columnKey": "Price",
+            "text": "Price",
+            "visible": false
+        }, {
+            "columnKey": "Width",
+            "text": "Width",
+            "visible": false
+        }, {
+            "columnKey": "Depth",
+            "text": "Depth",
+            "visible": false
+        }, {
+            "columnKey": "Height",
+            "text": "Height",
+            "visible": false
+        }
+    ]
+}

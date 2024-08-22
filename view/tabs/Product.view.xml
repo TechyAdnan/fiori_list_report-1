@@ -1,0 +1,87 @@
+<mvc:View   
+    
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:semantic="sap.f.semantic"
+    >
+
+			 <form:Form class="productform" editable="false">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                            <form:formElements>
+                                <form:FormElement label="Product Id" class="productdetail">
+                                    <form:fields>
+                                        <Text id="productid" text="{ProductSet>ProductID}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Type Code" class="productdetail">
+                                    <form:fields>
+                                        <Text id="typecode" text="{ProductSet>TypeCode}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Category" class="productdetail">
+                                    <form:fields>
+                                        <Text id="category" text="{ProductSet>Category}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Name" class="productdetail">
+                                    <form:fields>
+                                        <Text id="name" text="{ProductSet>Name}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Description" class="productdetail">
+                                    <form:fields>
+                                        <Text id="Description" text="{ProductSet>Description}" />
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                                <form:FormElement label="Weight Measure" class="productdetail">
+                                    <form:fields>
+                                        <Text id="weight_measure" text="{ProductSet>WeightMeasure}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Weight Unit" class="productdetail">
+                                    <form:fields>
+                                        <Text id="weight_unit" text="{ProductSet>WeightUnit}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Price" class="productdetail">
+                                    <form:fields>
+                                        <Text id="price" text="{ProductSet>Price}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Currency Code" class="productdetail">
+                                    <form:fields>
+                                        <Text id="currencycode" text="{ProductSet>CurrencyCode}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Width" class="productdetail">
+                                    <form:fields>
+                                        <Text id="width" text="{ProductSet>Width}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Depth" class="productdetail">
+                                    <form:fields>
+                                        <Text id="depth" text="{ProductSet>Depth}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Height" class="productdetail">
+                                    <form:fields>
+                                        <Text id="Height" text="{ProductSet>Height}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Dimension Unit" class="productdetail">
+                                    <form:fields>
+                                        <Text id="dim_unit" text="{ProductSet>DimUnit}" />
+                                    </form:fields>
+                                </form:FormElement>
+                            </form:formElements>
+                        </form:FormContainer>
+                    </form:Form>
+
+</mvc:View>
+    

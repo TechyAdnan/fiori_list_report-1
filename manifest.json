@@ -1,0 +1,165 @@
+{
+    "_version":"1.12.0",
+    "sap.app":{
+        "id": "node",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "Fiori Report",
+		"description": "Fiori Report",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.73"
+		}
+    },
+    "sap.ui":{
+        "technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+    },
+    "sap.ui5":{
+        "flexEnabled": false,
+		"rootView": {
+			"viewName": "node.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		},
+		"dependencies": {
+			"minUI5Version": "1.73",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "node.i18n.i18n"
+				}
+			},
+			"ProductSet":{
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/ProductSet.json",
+				"preload": false
+			},
+			"VariantSet":{
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/VariantSet.json",
+				"preload": false
+			},
+			"users":{
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/users.json",
+				"preload": false
+			},
+			"Category":{
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/Category.json",
+				"preload": false
+			},
+			"reviews":{
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/Reviews.json",
+				"preload": false
+			},
+			"CurrencyCode":{
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/CurrencyCode.json",
+				"preload": false
+			},
+			"WeightUnit":{
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/WeightUnit.json",
+				"preload": false
+			},
+			"DimensionUnit":{
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/DimensionUnit.json",
+				"preload": false
+			},
+			"Columns":{
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/Columns.json",
+				"preload": false
+			},
+			"ValueHelp":{
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/ValueHelp.json",
+				"preload": false
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/Table.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "node.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false,
+				"transition":"flip"
+			},
+			"routes": [
+			{
+				"name": "productlist",
+				"pattern": "",
+				"view": "Productlist",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			{
+				"name": "productdetail",
+				"pattern": "Product-{itemNumber}",
+				"view": "Productdetail",
+				"controlId": "app",
+				"clearControlAggregation": false
+			}],
+			"targets": {
+				"TargetView1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "App",
+					"viewName": "App"
+				}
+			}
+		}
+    }
+}

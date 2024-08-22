@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialog"
+		class="sapUiSizeCompact"
+		title="Supplier"
+		items="{ValueHelp>/Supplier}"
+		search=".onValueHelpSearch"
+		confirm=".onVHSelectSupplier"
+		cancel=".onValueHelpClose">
+		<StandardListItem
+			class="sapUiSizeCompact"
+			title="{ValueHelp>id}"
+			description="{ValueHelp>value}" />
+	</SelectDialog>
+</core:FragmentDefinition>

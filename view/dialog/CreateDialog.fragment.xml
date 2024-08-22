@@ -1,0 +1,391 @@
+<core:FragmentDefinition
+    controllerName="node.controller.Productlist"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+    <Dialog title="Create Product"
+            type="Standard"
+            id="CreateProduct"
+            verticalScrolling="true"
+            class="sapUiSizeCompact"
+            contentHeight="70%"
+		    contentWidth="80%">
+        <content>
+        <Wizard id="CreateProductWizard"
+						class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
+						showNextButton="false"
+						renderMode="Page">
+        <!--form group 1-->
+        <WizardStep id="BasicDetails"
+					title="Basic Details"
+					validated="true"
+					activate="BasicDetailsActivate">
+             <form:Form class="productform" editable="true">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                <form:FormElement label="Product ID" class="productdetail" >
+                                    <form:fields>
+                                        <Input id="create_productid" required="true" width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                 <form:FormElement label="Name" class="productdetail">
+                                    <form:fields>
+                                        <Input id="create_name" required="true" width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Category" class="productdetail">
+                                    <form:fields>
+                                        <ComboBox items="{Category>/category}" id="create_cat" required="true" width="200px" >
+								            <items >
+									            <core:Item  text="{Category>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                               <form:FormElement label="Description" class="productdetail">
+                                    <form:fields>
+                                        <TextArea id="create_Description" width="100%" />
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>
+                </WizardStep>
+                    <!--form group 2-->
+                <WizardStep id="SupplierDetails"
+					title="Supplier Details"
+					validated="true"
+					activate="SupplierDetailsActivate">
+                     <form:Form class="productform" editable="true" >
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                
+                                <form:FormElement label="Supplier ID" class="productdetail">
+                                    <form:fields>
+                                        <Input id="create_supplierid" required="true" width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Supplier Name" class="productdetail">
+                                    <form:fields>
+                                        <Input id="create_supplier_name" required="true" width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>   
+                </WizardStep>
+                    <!--form group 3-->     
+                <WizardStep id="WeightDetails"
+					title="Weight Details"
+					validated="true"
+					activate="WeightDetailsActivate">                  
+                     <form:Form class="productform" editable="true" >
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                
+                                <form:FormElement label="Type Code" class="productdetail">
+                                    <form:fields>
+                                        <Input id="create_typecode" width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                
+                               
+                                <form:FormElement label="Weight Measure" class="productdetail">
+                                    <form:fields>
+                                        <Input id="create_weight_measure" width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Weight Unit" class="productdetail">
+                                  <form:fields>
+                                        <ComboBox items="{WeightUnit>/unit}" id="create_weight_unit" required="true" width="200px" >
+								            <items >
+									            <core:Item  text="{WeightUnit>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>     
+                </WizardStep>
+                    <!--form group 4-->  
+                <WizardStep id="PriceDetails"
+					title="Price Details"
+					validated="true"
+					activate="PriceDetailsActivate">
+                     <form:Form class="productform" editable="true" >
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                
+                                <form:FormElement label="Price" class="productdetail">
+                                    <form:fields>
+                                        <Input id="create_price" required="true" width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Currency Code" class="productdetail">
+                                    <form:fields>
+                                        <ComboBox items="{CurrencyCode>/currency}" id="create_currencycode" required="true" width="200px" >
+								            <items >
+									            <core:Item  text="{CurrencyCode>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>  
+                </WizardStep>
+                    <!--product group 5-->
+                <WizardStep id="DimensionDetails"
+					title="Dimension Details"
+					validated="true"
+					activate="DimensionDetailsActivate">
+                     <form:Form class="productform" editable="true" >
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                              
+                                <form:FormElement label="Width" class="productdetail">
+                                    <form:fields>
+                                        <Input id="create_width" width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Depth" class="productdetail">
+                                    <form:fields>
+                                        <Input id="create_depth" width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Height" class="productdetail">
+                                    <form:fields>
+                                        <Input id="create_Height"  width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Dimension Unit" class="productdetail">
+                                    <form:fields>
+                                        <ComboBox items="{DimensionUnit>/unit}" id="create_dim_unit" required="true" width="200px" >
+								            <items >
+									            <core:Item  text="{DimensionUnit>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>   
+                </WizardStep>
+                <!--Review Page-->
+                <WizardStep id="ReviewDetails"
+					title="Review Details"
+					validated="true"
+					activate="ReviewDetailsActivate">
+                     <!--form group 1 review-->                  
+                    <form:Form class="productform" editable="false" title="Basic Details">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                <form:FormElement label="Product ID" class="productdetail" >
+                                    <form:fields>
+                                        <Text id="review_create_productid"  width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                 <form:FormElement label="Name" class="productdetail">
+                                    <form:fields>
+                                        <Text id="review_create_name"  width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Category" class="productdetail">
+                                    <form:fields>
+                                        <ComboBox items="{Category>/category}" id="review_create_cat"  width="200px" editable="false" >
+								            <items >
+									            <core:Item  text="{Category>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                               <form:FormElement label="Description" class="productdetail">
+                                    <form:fields>
+                                        <TextArea id="review_create_Description" width="100%" editable="false" />
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>
+                     <!--form group 2 review-->
+                     <form:Form class="productform" editable="false" title="Supplier Details">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                
+                                <form:FormElement label="Supplier ID" class="productdetail">
+                                    <form:fields>
+                                        <Text id="review_create_supplierid"  width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Supplier Name" class="productdetail">
+                                    <form:fields>
+                                        <Text id="review_create_supplier_name"  width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>   
+                     <!--form group 3 review-->
+                       <form:Form class="productform" editable="false" title="Weight Details">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                
+                                <form:FormElement label="Type Code" class="productdetail">
+                                    <form:fields>
+                                        <Text id="review_create_typecode" width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                
+                               
+                                <form:FormElement label="Weight Measure" class="productdetail">
+                                    <form:fields>
+                                        <Text id="review_create_weight_measure" width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Weight Unit" class="productdetail">
+                                  <form:fields>
+                                        <ComboBox items="{WeightUnit>/unit}" id="review_create_weight_unit"  width="200px" editable="false" >
+								            <items >
+									            <core:Item  text="{WeightUnit>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>     
+                      <!--form group 4 review-->
+                        <form:Form class="productform" editable="false" title="Price Details">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                                
+                                <form:FormElement label="Price" class="productdetail">
+                                    <form:fields>
+                                        <Text id="review_create_price"  width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Currency Code" class="productdetail">
+                                    <form:fields>
+                                        <ComboBox items="{CurrencyCode>/currency}" id="review_create_currencycode" required="true" width="200px" editable="false" >
+								            <items >
+									            <core:Item  text="{CurrencyCode>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>  
+                       <!--form group  5 review-->
+                    <form:Form class="productform" editable="false" title="Dimension Details" >
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                           
+                            <form:formElements>
+                           
+                              
+                                <form:FormElement label="Width" class="productdetail">
+                                    <form:fields>
+                                        <Text id="review_create_width" width="200px"/>
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Depth" class="productdetail">
+                                    <form:fields>
+                                        <Text id="review_create_depth" width="200px"/>
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Height" class="productdetail">
+                                    <form:fields>
+                                        <Text id="review_create_Height"  width="200px" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Dimension Unit" class="productdetail">
+                                    <form:fields>
+                                        <ComboBox items="{DimensionUnit>/unit}" id="review_create_dim_unit" required="true" width="200px" editable="false" >
+								            <items >
+									            <core:Item  text="{DimensionUnit>value}" />
+								            </items>
+							            </ComboBox>
+                                    </form:fields>
+                                </form:FormElement>
+                            </form:formElements>
+                          
+                        </form:FormContainer>
+                    </form:Form>   
+                </WizardStep>
+            </Wizard>                                                                                            
+        </content>
+        <buttons>
+            <Button text="Next" id="next_btn" type="Emphasized"  press="onNextCreate" visible="true"/>
+            <Button text="Review" id="review_btn" type="Emphasized"  press="onReviewCreate" visible="false"/>
+            <Button text="Save" id="save_btn" type="Emphasized"  press="onSaveCreate" visible="false"/>
+            <Button text="Cancel" id="cancel_btn" press="onCloseCreate" visible="true" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

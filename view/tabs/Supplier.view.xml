@@ -1,0 +1,33 @@
+<mvc:View   
+    
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:semantic="sap.f.semantic"
+    >
+
+			 <form:Form class="productform" editable="false">
+                        <form:layout>
+                            <form:ResponsiveGridLayout/>
+                        </form:layout>
+                        <form:FormContainer>
+                            <form:formElements>
+                               
+                                <form:FormElement label="Supplier ID" class="productdetail">
+                                    <form:fields>
+                                        <Text id="supplierid" text="{ProductSet>SupplierID}" />
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement label="Supplier Name" class="productdetail">
+                                    <form:fields>
+                                        <Text id="supplier_name" text="{ProductSet>SupplierName}" />
+                                    </form:fields>
+                                </form:FormElement>
+                               
+                            </form:formElements>
+                        </form:FormContainer>
+                    </form:Form>
+
+</mvc:View>
+    
